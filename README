@@ -1,0 +1,37 @@
+Decision Tree Classifier
+Author: Dane Larsen
+
+DEPENDENCIES:
+
+Requires c99
+Only tested on linux, but _should_ work on everything
+
+BUILDING:
+
+If on *nix, run `make`, otherwise take a look at the Makefile
+
+RUNNING:
+
+./dt_main [entropy|gini] [prune|noprune] <train csv> <validate csv> <test csv> <prediction output>
+
+Parameters:
+    [entropy|gini]    - choose the splitting metric, either information gain
+                        (entropy) or population diversity (gini). In general,
+                        population diversity performs better
+
+    [prune|noprune]   - either prune the trained decision tree, or don't prune it.
+                        pruning can sometimes improve accuracy, and can often
+                        greately improve classification speed and memory usage.
+
+    <train csv>       - the csv with training data, assumes that the last column is
+                        the Y values
+
+    <validation csv>  - used to score the trained tree, and used to prune if
+                        requested, also assumes that the last column is y values
+
+    <test csv>        - the test set without y values, will be used to generate
+                        the prediction set
+
+    <prediction file> - the file to write the final predictions to
+
+
